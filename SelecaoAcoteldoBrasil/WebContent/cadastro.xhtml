@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html >
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Projeto Oportunidade</title>
+</h:head>
+<h:body>
+
+	<h2>Aplicação - Cadastro de Aluno</h2>
+	<a href="index.jsp">Index</a> |
+	<a href="cadastro.xhtml">Cadastro</a>
+	<hr/>
+	
+	<h:form id="formCadastro">
+		<h:messages />
+		<h:panelGrid columns="2">
+			
+			<h:outputLabel value="Matricula" for="matricula"/>
+			<p:inputText type="number" id="matricula" value="#{alunocad.aluno.matricula}"/>
+			
+			<h:outputLabel value="Nome" for="nome"/>
+			<p:inputText id="nome" size="30" value="#{alunocad.aluno.nome}" />
+			
+			<h:outputLabel value="Email" for="email"/>
+			<p:inputText id="email" size="30" value="#{alunocad.aluno.email}"/>
+			
+			<h:outputLabel value="Genero" for="genero"/>
+			<p:selectOneRadio id="genero" value="#{alunocad.aluno.genero}">
+				<f:selectItem itemLabel="Feminino" itemValue="feminino"/>
+				<f:selectItem itemLabel="Masculino" itemValue="masculino"/>
+			</p:selectOneRadio>
+			
+			<h:outputLabel value="Telefone" for="telefone"/>
+			<p:inputMask mask="(99)99999999?9" id="telefone" value="#{alunocad.aluno.telefone}"/>
+			
+			<h:outputLabel value="Data de Nascimento" for="nascimento"/>
+			<p:inputMask mask="99/99/9999" id="nascimento" value="#{alunocad.nascimento}"/>
+			
+		</h:panelGrid>
+		<br/>
+		<p:commandButton value="Cadastrar" action="#{alunocad.cadastrar}" ajax="false"/>
+		
+	</h:form>
+	
+</h:body>
+</html>
